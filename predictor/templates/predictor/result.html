@@ -1,0 +1,61 @@
+{% extends "predictor/base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-7 col-md-9">
+
+        <!-- Price Result Card -->
+        <div class="card card-custom mb-4">
+            <div class="card-body text-center py-5">
+                <div class="success-icon">
+                    <i class="bi bi-check-lg"></i>
+                </div>
+                <h4 class="mb-3" style="color:#374151; font-weight:600;">
+                    Գնահատման Արդյունք
+                </h4>
+                <div class="price-display mb-1">
+                    {{ predicted_price|floatformat:0 }}
+                </div>
+                <div class="price-currency">Դրամ (AMD)</div>
+            </div>
+        </div>
+
+        <!-- Input Parameters Card -->
+        <div class="card card-custom mb-4">
+            <div class="card-header">
+                <h4><i class="bi bi-list-check me-2"></i>Մուտքագրված Տվյալներ</h4>
+            </div>
+            <div class="card-body">
+                <div class="result-param">
+                    <span class="param-label"><i class="bi bi-aspect-ratio me-2"></i>Մակերեսություն (m²)</span>
+                    <span class="param-value">{{ evaluation.area_sqm }} m²</span>
+                </div>
+                <div class="result-param">
+                    <span class="param-label"><i class="bi bi-door-open me-2"></i>Սենյակների քանակ</span>
+                    <span class="param-value">{{ evaluation.rooms }}</span>
+                </div>
+                <div class="result-param">
+                    <span class="param-label"><i class="bi bi-building me-2"></i>Հարկ</span>
+                    <span class="param-value">{{ evaluation.floor }}</span>
+                </div>
+                <div class="result-param">
+                    <span class="param-label"><i class="bi bi-geo-alt me-2"></i>Շրջան</span>
+                    <span class="param-value">{{ district_display }}</span>
+                </div>
+                <div class="result-param">
+                    <span class="param-label"><i class="bi bi-house-check me-2"></i>Վիճակ</span>
+                    <span class="param-value">{{ condition_display }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="text-center">
+            <a href="/" class="btn btn-outline-primary btn-lg">
+                <i class="bi bi-arrow-repeat me-2"></i>Կատարել նոր հարցում
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
